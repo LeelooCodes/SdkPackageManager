@@ -1,0 +1,21 @@
+# Visual Studio
+.vs/
+
+# .NET build output
+bin/
+obj/
+
+# C++ build output
+x64/
+Debug/
+Release/
+
+# Visual Studio user-specific files
+*.user
+*.suo
+
+# Test results
+TestResults/
+
+# NuGet
+packages/
