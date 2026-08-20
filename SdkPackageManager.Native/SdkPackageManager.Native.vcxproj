@@ -116,6 +116,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)SdkPackageManager.App\bin\$(Configuration)\net8.0-windows" mkdir "$(SolutionDir)SdkPackageManager.App\bin\$(Configuration)\net8.0-windows"
+copy /Y "$(TargetPath)" "$(SolutionDir)SdkPackageManager.App\bin\$(Configuration)\net8.0-windows\SdkPackageManager.Native.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -133,6 +137,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)SdkPackageManager.App\bin\$(Configuration)\net8.0-windows" mkdir "$(SolutionDir)SdkPackageManager.App\bin\$(Configuration)\net8.0-windows"
+copy /Y "$(TargetPath)" "$(SolutionDir)SdkPackageManager.App\bin\$(Configuration)\net8.0-windows\SdkPackageManager.Native.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />

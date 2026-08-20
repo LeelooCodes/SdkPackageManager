@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel
+            Margin="30"
+            VerticalAlignment="Center">
 
+            <TextBlock
+                Text="Native Interop Test"
+                FontSize="24"
+                Margin="0, 0, 0, 20" />
+
+            <Button
+                Content="Compare 1.2.0 with 1.4.0"
+                Click="TestNative_Click"
+                Width="220"
+                Height="40"
+                HorizontalAlignment="Left" />
+
+            <TextBlock
+                x:Name="NativeResultText"
+                Text="Native result not tested yet."
+                Margin="0, 20, 0, 0"
+                FontSize="16" />
+            
+        </StackPanel>
     </Grid>
 </Window>

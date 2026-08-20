@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.14.36212.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SdkPackageManager.App", "SdkPackageManager.App\SdkPackageManager.App.csproj", "{43607341-44A1-4D10-B4D3-1C1DB2258822}"
+	ProjectSection(ProjectDependencies) = postProject
+		{596929FF-6BFA-4B92-A8B5-0D5764B09862} = {596929FF-6BFA-4B92-A8B5-0D5764B09862}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SdkPackageManager.Native", "SdkPackageManager.Native\SdkPackageManager.Native.vcxproj", "{596929FF-6BFA-4B92-A8B5-0D5764B09862}"
 EndProject

@@ -9,6 +9,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using SdkPackageManager.App.Interop;
+
 namespace SdkPackageManager.App
 {
     /// <summary>
@@ -19,6 +21,15 @@ namespace SdkPackageManager.App
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void TestNative_Click(object sender, RoutedEventArgs e)
+        {
+            int result = NativeMethods.CompareVersions(
+                1, 2, 0,
+                1, 4, 0);
+
+            NativeResultText.Text = $"Native result: {result}";
         }
     }
 }
