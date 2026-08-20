@@ -44,9 +44,19 @@ public class PackageInfo : INotifyPropertyChanged
             }
 
             _status = value;
+
             OnPropertyChanged();
+            OnPropertyChanged(nameof(StatusDisplay));
         }
     }
+
+    public string StatusDisplay => Status switch
+    {
+        PackageStatus.NotInstalled => "Not Installed",
+        PackageStatus.Installed => "Installed",
+        PackageStatus.UpdateAvailable => "Update Available",
+        _ => "Unknown"
+    };
 
     public PackageInfo(
         string name,

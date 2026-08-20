@@ -51,7 +51,7 @@
                                     Width="160"/>
 
                 <DataGridTextColumn Header="Status"
-                                    Binding="{Binding Status}"
+                                    Binding="{Binding StatusDisplay}"
                                     Width="160"/>
 
             </DataGrid.Columns>
