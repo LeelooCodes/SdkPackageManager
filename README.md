@@ -6,6 +6,10 @@ The application models a fictional developer SDK/package manager. It displays in
 
 The project is deliberately generic and does not use or reproduce any proprietary SDKs, internal tooling, or company-specific information.
 
+## Screenshot
+
+![Developer SDK Package Manager](docs/sdk-package-manager.png)
+
 ## Features
 
 * Windows desktop UI built with **WPF and .NET 8**
