@@ -10,3 +10,8 @@ int __cdecl CompareVersions(
 	int secondMinor,
 	int secondPatch
 );
+
+extern "C" __declspec(dllexport)
+int __cdecl ValidatePackageName(
+	const wchar_t* packageName
+);
