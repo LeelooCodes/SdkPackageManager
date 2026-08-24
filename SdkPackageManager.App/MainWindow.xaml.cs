@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using SdkPackageManager.App.Models;
 using SdkPackageManager.App.Services;
+using SdkPackageManager.App.Interop;
 
 namespace SdkPackageManager.App;
 
@@ -10,7 +11,7 @@ namespace SdkPackageManager.App;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private readonly PackageService _packageService = new();
+    private readonly PackageService _packageService = new(new NativePackageInterop());
 
     public ObservableCollection<PackageInfo> Packages { get; } = new()
     {

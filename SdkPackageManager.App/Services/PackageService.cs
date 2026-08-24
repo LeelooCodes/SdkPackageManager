@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,15 @@ namespace SdkPackageManager.App.Services;
 
 public class PackageService
 {
+    private readonly IPackageInterop _packageInterop;
+
+    public PackageService(IPackageInterop packageInterop)
+    {
+        _packageInterop = packageInterop
+            ?? throw new ArgumentNullException(nameof(packageInterop));
+    }
+
+
     public void RefreshStatus(PackageInfo package)
     {
         if (package.InstalledVersion is  null)
@@ -22,7 +32,7 @@ public class PackageService
         Version installed = Version.Parse(package.InstalledVersion);
         Version available = Version.Parse(package.AvailableVersion);
 
-        int comparison = NativeMethods.CompareVersions(
+        int comparison = _packageInterop.CompareVersions(
             installed.Major,
             installed.Minor,
             installed.Build,
@@ -35,9 +45,9 @@ public class PackageService
             : PackageStatus.Installed;
     }
 
-    private static bool IsPackageNameValid(PackageInfo package)
+    private bool IsPackageNameValid(PackageInfo package)
     {
-        return NativeMethods.ValidatePackageName(package.Name) != 0;
+        return _packageInterop.IsPackageNameValid(package.Name);
     }
 
     public void Install(PackageInfo package)
