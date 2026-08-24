@@ -23,4 +23,12 @@ internal static class NativeMethods
         int secondMajor,
         int secondMinor,
         int secondPatch);
+
+    [DllImport(
+        DllName,
+        CallingConvention = CallingConvention.Cdecl,
+        ExactSpelling = true)]
+    internal static extern int ValidatePackageName(
+        [MarshalAs(UnmanagedType.LPWStr)] string? packageName);     //it remembers that C++ expects a const wchar_t* packageName while C# has string. Those are not the same type. MarshalAs tells the P/Invoke marshaler:
+    //Represent this managed C# string as a pointer to a null-terminated wide-character string when calling native code. LPWStr: LP -> Long pointer, historical windows terminology. W -> wide chars. Str -> string.
 }

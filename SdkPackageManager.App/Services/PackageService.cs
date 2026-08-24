@@ -35,20 +35,48 @@ public class PackageService
             : PackageStatus.Installed;
     }
 
+    private static bool IsPackageNameValid(PackageInfo package)
+    {
+        return NativeMethods.ValidatePackageName(package.Name) != 0;
+    }
+
     public void Install(PackageInfo package)
     {
+        if (!IsPackageNameValid(package))
+        {
+            throw new ArgumentException(
+                "Package contains an invalid name.",
+                nameof(package));
+        }
+
         package.InstalledVersion = package.AvailableVersion;
         RefreshStatus(package);
     }
 
     public void Update(PackageInfo package)
     {
+        if (!IsPackageNameValid(package))
+        {
+            throw new ArgumentException(
+
+                "Package contains an invalid name.",
+                nameof(package));
+        }
+
         package.InstalledVersion = package.AvailableVersion;
         RefreshStatus(package);
     }
 
     public void Remove(PackageInfo package)
     {
+        if (!IsPackageNameValid(package))
+        {
+            throw new ArgumentException(
+
+                "Package contains an invalid name.",
+                nameof(package));
+        }
+
         package.InstalledVersion = null;
         RefreshStatus(package);
     }
