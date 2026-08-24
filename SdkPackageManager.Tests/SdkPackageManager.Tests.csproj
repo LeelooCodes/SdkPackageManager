@@ -24,4 +24,14 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+	<Target Name="CopyNativeDllForTests"
+			AfterTargets="Build">
+
+		<Copy
+			SourceFiles ="$(MSBuildProjectDirectory)\..\x64\$(Configuration)\SdkPackageManager.Native.dll"
+			DestinationFolder="$(TargetDir)"
+			SkipUnchangedFiles="true" />
+		
+	</Target>
+
 </Project>
